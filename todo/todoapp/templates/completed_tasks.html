@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+<div class="container mt-5">
+    <h2 class="mb-4">Completed Tasks</h2>
+    {% for task in completed_tasks %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ task.name }}</h5>
+                <p class="card-text"><b>Priority:</b> {{ task.priority }}</p>
+                <p class="card-text"><b>Date:</b> {{ task.date }}</p>
+                <a class="btn btn-danger" href="{% url 'tdelete' task.id %}">Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
